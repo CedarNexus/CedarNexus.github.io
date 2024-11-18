@@ -524,12 +524,22 @@ body {
       opacity: 0.75;
     }
 
-/*     span.toc-txt.level2:before, span.toc-txt.level3:before {
-      font-family: 'Material Icons';
-      content: "chevron_right";
+    #toc .material-symbols-outlined {
+      margin-left: -.05rem;
+      margin-right: .2rem;
+      color: white;
+      mix-blend-mode: difference;
+      transition: color .3s ease;
+    }
+
+/* 
+     span.toc-txt.level2:before, span.toc-txt.level3:before {
+      font-family: 'Material Symbols Outlined';
+      content: "more_vert";
       vertical-align: top;
       margin-left: -.5rem;
-  } */
+     } 
+ */
 
 
 /*     a.toc-item:hover slide-box {
@@ -885,6 +895,7 @@ section {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  align-content: center;
   position: relative;
   z-index: 0;
   mix-blend-mode: exclusion;
@@ -1333,8 +1344,9 @@ footer a:hover {
   text-decoration: none;
 }
 
-a.social_icon {
-  vertical-align: middle;
+
+.social_icon {
+  vertical-align: sub;
   fill: white;
 }
 
