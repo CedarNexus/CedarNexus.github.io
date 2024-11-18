@@ -1,5 +1,14 @@
-// toc
+document.getElementById("toggleSources").onclick = () => {
+  const sourcesWrapper = document.getElementById("sources-wrapper");
+  const opened = sourcesWrapper.classList.toggle("opened");
+  document.getElementById("toggleSources").innerHTML = opened 
+    ? `<span class="material-icons">library_books</span> Hide Sources` 
+    : `<span class="material-icons">library_books</span> Show Sources`;
+};
 
+
+
+// toc
 document.addEventListener("DOMContentLoaded", function () {
   const tocContainer = document.getElementById('toc');
   const sections = document.querySelectorAll('.toc_section');
@@ -23,7 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
       
       const tocTextSpan = document.createElement('span');
       tocTextSpan.classList.add('toc-txt');
-      tocTextSpan.innerText = headings[0] ? headings[0].innerText : section.id;
+
+      // Check if the section has a custom title defined in the 'data-toc-title' attribute
+      const customTitle = section.getAttribute('data-toc-title');
+      tocTextSpan.innerText = customTitle || (headings[0] ? headings[0].innerText : section.id);
       tocLink.appendChild(tocTextSpan);
 
       const bgSlide = document.createElement('div');
@@ -40,18 +52,27 @@ document.addEventListener("DOMContentLoaded", function () {
       // Adjust indentation based on heading level
       const headingLevel = parseInt(headings[0].tagName[1]); // h1 => 1, h2 => 2, etc.
       const marginLeft = (headingLevel - 1) * 5 + 10; // 20px per level
-      
             
       tocLink.style.marginLeft = `${marginLeft}px`;
 
-      
+      // Apply minimum height for specific heading levels
+      if (headingLevel >= 1 && headingLevel < 2) {
+        tocItem.style.minHeight = '2rem';
+      } else {
+        if (headingLevel > 1) {
+          tocItem.style.minHeight = '1.8rem';
+        }
+      }
+
       // Adjust progress bar width and position based on heading level
       progressBar.style.width = `${marginLeft - 4}px`; // Adjust the width of the progress bar to match the margin of the link
+
+      // Add a class to the span that carries the text, depending on the heading level
+      tocTextSpan.classList.add(`level${headingLevel}`);
     }
   });
 
   tocContainer.appendChild(tocList);
-
 
 
   // Function to update the active section and progress bar
@@ -85,11 +106,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  
   // Listen for scroll events to update ToC and progress bars
   window.addEventListener('scroll', updateTOC);
   updateTOC(); // Initial update when the page loads
 });
-
 
 
 
