@@ -182,9 +182,9 @@
         <div id="progress-bar"></div>
 
 
-        <section id="what" class="section bright what toc_section">
+        <section id="what" class="section bright what toc_section" data-toc-title="Overview">
           <div class="container">
-            <h1>Find and use connections between nutrients</h1>
+            <h2>Find and use connections between nutrients</h2>
             <p>
               The Cedar Nexus project is the synthesis of two initiatives I am currently working on. It's a long-term effort to
               understand how nutrients interact with each other and how this knowledge can be applied to create a more
@@ -195,7 +195,7 @@
 
             <div class="project-container">
               <div class="project-item">
-                <a href="#prediction-tool" class="link wiggle" style="cursor: none; transition: transform 0.5s ease-in-out;"><span style="color: black; text-transform: inherit"><i class="material-symbols-outlined project-icon">network_intelligence</i></span></a>               
+                <a href="#prediction-tool" class="link wiggle" style="cursor: none; transition: transform 0.5s ease-in-out;"><span style="color: black; text-transform: inherit"><i class="material-symbols-outlined project-icon">layers</i></span></a>               
                 <h3 class="project-title">Nutrideep</h3>
                 <p class="project-description">
                   Nutrient mapping using machine learning prediction
@@ -262,8 +262,8 @@
 
               </div>
               <div class="project-item">
-                <a href="#nutrientInteractions" class="link wiggle" style="cursor: none; transition: transform 0.5s ease-in-out;"><span style="color: black; text-transform: inherit"><i class="material-symbols-outlined project-icon">layers</i></span></a>
-                <h3 class="project-title">Nutrient interactions</h3>
+                <a href="#nutrientInteractions" class="link wiggle" style="cursor: none; transition: transform 0.5s ease-in-out;"><span style="color: black; text-transform: inherit"><i class="material-symbols-outlined project-icon">graph_3</i></span></a>
+                <h3 class="project-title">Nutrimerge</h3>
                 <p class="project-description">
                   Observing nutritional emergence through a scientific lens
                 </p>
@@ -342,9 +342,11 @@
 
        
         
-        <section id="prediction-tool" class="section dark prediction toc_section">
-          <div class="container">
+        <section id="prediction-tool" class="section dark prediction toc_section" data-toc-title="Nutrideep">
             <h1 class="section-title">Nutrideep - A Nutrient Prediction Tool</h1>
+          </section>
+            <section id="how-it-works" class="toc_section" data-toc-title="How it works">
+          <div class="container">
             <h2>Predict Missing Nutrients</h2>
             <p>
               By leveraging deep learning techniques, I have developed a tool that predicts missing nutrients from a given set of known nutrients. For example, if you know the energy, protein, fat, and sugar content of a food item, the model can predict the levels of missing nutrients such as vitamins, minerals, and amino acids with remarkable accuracy.
@@ -362,8 +364,10 @@
               The model's high accuracy (with an R² of 0.97 for predicting amino acid content) makes it a valuable tool for anyone seeking a more complete understanding of their nutritional intake.
             </p>
           </div>
+            </section>
+
           <div class="skewB"></div>
-        </section>
+
         
         <section id="predict" class="section bright prediction toc_section">
           <div class="skewA"></div>
@@ -389,7 +393,7 @@
         </div>
         </section> 
 
-        <section id="use-cases" class="section bright practical toc_section">
+        <section id="use-cases" class="section bright practical toc_section" data-toc-title="Use Cases">
           <div class="container">
             <h2>Use Cases & Applications</h2>
             <p>
@@ -478,7 +482,11 @@
         </section>
 
 
-        <section id="nutrientInteractions" class="section bright nutrientInteractions toc_section">
+        <section id="Nutrimerge" class="section bright toc_section" data-toc-title="Nutrimerge">
+          <h1 class="section-title">Nutrimerge - A Network of Nutrient Interactions</h1>
+        </section>
+
+        <section id="nutrientInteractions" class="section bright nutrientInteractions toc_section" data-toc-title="Dynamic Interactions">
           <div class="container">
             <h2>Focus on dynamic interactions</h2>
             <p>
@@ -550,13 +558,14 @@
               and results in 430 instead of 575 Kcal in this example.
             </p>
           </div>
-          <div class="skewB"></div>
+          <!-- <div class="skewB"></div> -->
         </section>
 
         <section
           id="maths"
-          class="section bright maths"
+          class="section bright maths toc_section"
           style="padding-bottom: 80px"
+          data-toc-title="The Maths"
         >
           <div class="container">
             <div class="blob-cont" style="mix-blend-mode: difference">
@@ -776,9 +785,13 @@
 
 
         <!--        Sources       -->
-        <section class="section bright sources toc_section">
+        <section class="section bright sources toc_section" id="sources">
+          <button class="toggle-button btn wiggle" id ="toggleSources">
+            <span class="material-icons">library_books</span> Show Sources
+          </button>
           <div class="skewB"></div>
-          <div class="container">
+          <div id="sources-wrapper">
+          <div class="container" id="sources-content">
             <h1>Cited Sources</h1>
             <div
               id="Christensen2009"
@@ -866,10 +879,27 @@
               ></span>
             </div>
           </div>
+          </div> 
         </section>
         <!-- Sources Section -->
+
+        <footer>
+          <nav>
+            <a href="https://github.com/CedarNexus/CedarNexus.github.io" aria-label="GitHub" title="GitHub" class="social_icon" target="_blank" rel="noopener noreferrer">
+              <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" version="1.1" viewBox="0 0 16 16" width="24"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+        </svg>
+            <span style="margin-left: .5em">GitHub</span>
+        </a>
+            <a href="imprint.html">Privacy Policy</a>
+            <a href="imprint.html">Imprint</a>
+          </nav>
+
+          <p>&copy; 2024 Cedar Nexus. All rights reserved.</p>
+
+        </footer>
       </div>
       <!-- sticky-header container -->
+
     </div>
     <!-- app -->
 
