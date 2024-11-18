@@ -38,6 +38,15 @@ document.addEventListener("DOMContentLoaded", function () {
       tocTextSpan.innerText = customTitle || (headings[0] ? headings[0].innerText : section.id);
       tocLink.appendChild(tocTextSpan);
 
+      // Check if the section has a custom icon defined in 'data-toc-icon'
+      const tocIconID = section.getAttribute('data-toc-icon');
+      if (tocIconID) {
+      const tocIconSpan = document.createElement('span');
+      tocIconSpan.classList.add('material-symbols-outlined');  // Using Material Symbols font
+      tocIconSpan.innerText = tocIconID;  // Set the icon using the ID from the attribute
+      tocLink.insertBefore(tocIconSpan, tocTextSpan);  // Add the icon before the text
+      }
+
       const bgSlide = document.createElement('div');
       bgSlide.classList.add('bg-slide');
       tocLink.appendChild(bgSlide);
@@ -158,89 +167,96 @@ document.addEventListener("DOMContentLoaded", function() {
   const cursor = document.querySelector(".cursor");
   const specialElements = document.querySelectorAll("textarea, input, .text-area");
 
-  const animateit = function (e) {
-    if (this.classList.contains("wiggle")) {
-      const { offsetX: x, offsetY: y } = e,
-        { offsetWidth: width, offsetHeight: height } = this,
-        move = 28,
-        xMove = x * (move * 2) / width - move,
-        yMove = y * (move * 2) / height - move;
-      this.style.transform = `translate(${xMove}px, ${yMove}px)`;
-      if (e.type === "mouseleave") {
-        this.style.transition = "transform 0.5s ease-in-out";
-        this.style.transform = "";
-      } else {
-        this.style.transition = "transform 0.15s linear";
-      }
-    }
-  };
-
-  const editCursor = (e) => {
-    const { clientX: x, clientY: y } = e;
-    cursor.style.left = x + "px";
-    cursor.style.top = y + "px";
-  };
-
-  const handleMouseEnter = () => cursor.classList.add("hovered");
-  const handleMouseLeave = () => cursor.classList.remove("hovered");
-
-  const eventListener = (e) => {
-    if (e.target.classList.contains("wiggle")) {
-      animateit(e);
-    }
-    if (e.type === "mouseenter") {
-      handleMouseEnter();
-    } else if (e.type === "mouseleave") {
-      handleMouseLeave();
-    }
-    document.removeEventListener(e.type, eventListener);
-    document.addEventListener(e.type, eventListener);
-  };
-
-
-  const handleClick = (e) => {
-    const href = e.currentTarget.getAttribute("href");
-    if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("mailto:")) return;
-    e.preventDefault();
-    cursor.classList.add("active");
-
-    const targetSection = document.querySelector(href);
-    const scrollDelay = 400;
-    const revertDelay = 300;
-
-    let start = null;
-    const animation = (timestamp) => {
-      if (start === null) start = timestamp;
-      const progress = timestamp - start;
-
-      if (progress < scrollDelay) {
-        requestAnimationFrame(animation);
-      } else {
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: "smooth" });
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  if (isMobile) {
+    document.body.style.cursor = "auto";
+    document.querySelectorAll('a').forEach(a => a.style.cursor = "auto");
+  } else {
+    const animateit = function (e) {
+      if (this.classList.contains("wiggle")) {
+        const { offsetX: x, offsetY: y } = e,
+          { offsetWidth: width, offsetHeight: height } = this,
+          move = 28,
+          xMove = x * (move * 2) / width - move,
+          yMove = y * (move * 2) / height - move;
+        this.style.transform = `translate(${xMove}px, ${yMove}px)`;
+        if (e.type === "mouseleave") {
+          this.style.transition = "transform 0.5s ease-in-out";
+          this.style.transform = "";
+        } else {
+          this.style.transition = "transform 0.15s linear";
         }
-        start = null;
-        setTimeout(() => cursor.classList.remove("active"), revertDelay);
       }
     };
 
-    requestAnimationFrame(animation);
-  };
+    const editCursor = (e) => {
+      const { clientX: x, clientY: y } = e;
+      cursor.style.left = x + "px";
+      cursor.style.top = y + "px";
+    };
 
-  // Attach event listeners
-  interactiveElements.forEach((element) => {
-    element.addEventListener("click", eventListener);
-    element.addEventListener("mouseenter", handleMouseEnter);
-    element.addEventListener("mouseleave", handleMouseLeave);
-    element.addEventListener("click", handleClick);
-    element.addEventListener("mousemove", animateit);
-    element.addEventListener("mouseleave", animateit);
-  });
+    const handleMouseEnter = () => cursor.classList.add("hovered");
+    const handleMouseLeave = () => cursor.classList.remove("hovered");
 
-  document.addEventListener("mousemove", editCursor);
-  /* document.body.style.cursor = "none"; */
-  document.querySelectorAll('a').forEach(a => a.style.cursor = "none");
+    const eventListener = (e) => {
+      if (e.target.classList.contains("wiggle")) {
+        animateit(e);
+      }
+      if (e.type === "mouseenter") {
+        handleMouseEnter();
+      } else if (e.type === "mouseleave") {
+        handleMouseLeave();
+      }
+      document.removeEventListener(e.type, eventListener);
+      document.addEventListener(e.type, eventListener);
+    };
 
+
+    const handleClick = (e) => {
+      const href = e.currentTarget.getAttribute("href");
+      if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("mailto:")) return;
+      e.preventDefault();
+      cursor.classList.add("active");
+
+      const targetSection = document.querySelector(href);
+      const scrollDelay = 400;
+      const revertDelay = 300;
+
+      let start = null;
+      const animation = (timestamp) => {
+        if (start === null) start = timestamp;
+        const progress = timestamp - start;
+
+        if (progress < scrollDelay) {
+          requestAnimationFrame(animation);
+        } else {
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: "smooth" });
+          }
+          start = null;
+          setTimeout(() => cursor.classList.remove("active"), revertDelay);
+        }
+      };
+
+      requestAnimationFrame(animation);
+    };
+
+    // Attach event listeners
+    interactiveElements.forEach((element) => {
+      element.addEventListener("click", eventListener);
+      element.addEventListener("mouseenter", handleMouseEnter);
+      element.addEventListener("mouseleave", handleMouseLeave);
+      element.addEventListener("click", handleClick);
+      element.addEventListener("mousemove", animateit);
+      element.addEventListener("mouseleave", animateit);
+    });
+
+    document.addEventListener("mousemove", editCursor);
+    /* document.body.style.cursor = "none"; */
+    document.querySelectorAll('a').forEach(a => a.style.cursor = "none");
+
+  }
+  
   // Button navbar
   window.toggleMenu = function (menuButton) {
     const navLinks = document.querySelector("#navbar .nav-links");
