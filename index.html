@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Nutrient Tracker Project</title>
+    <title>Cedar Nexus</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
@@ -97,7 +97,7 @@
                 >
               </li>
               <li class="slide-box">
-                <a href="#nutrientInteractions">
+                <a href="#prediction-tool">
                   <div class="bg-slide"></div>
                   How</a
                 >
@@ -166,7 +166,7 @@
             <nav>
               <a href="#what" class="link wiggle"><span>What</span></a>
               <a href="#why" class="link wiggle"><span>Why</span></a>
-              <a href="#nutrientInteractions" class="link wiggle"><span>How</span></a>
+              <a href="#prediction-tool" class="link wiggle"><span>How</span></a>
               <a href="#contact" class="link wiggle"><span>Contact</span></a>
             </nav>
           </div>
@@ -178,12 +178,21 @@
           </div>
         </header>
 
-        <section id="what" class="section bright what">
+        <div id="toc"></div>
+        <div id="progress-bar"></div>
+
+
+        <section id="what" class="section bright what toc_section">
           <div class="container">
-            <h1>Nutrition Simplified</h1>
+            <h1>Find and use connections between nutrients</h1>
             <p>
-              I am currently working on two projects:
+              The Cedar Nexus project is the synthesis of two initiatives I am currently working on. It's a long-term effort to
+              understand how nutrients interact with each other and how this knowledge can be applied to create a more
+              sustainable and healthy food system. The core idea is to identify the most important connections between
+              nutrients and to develop a method for predicting and optimizing these interactions. The project is still in its early stages, but I am excited to see where
+              it will take me.
             </p>
+
             <div class="project-container">
               <div class="project-item">
                 <a href="#prediction-tool" class="link wiggle" style="cursor: none; transition: transform 0.5s ease-in-out;"><span style="color: black; text-transform: inherit"><i class="material-symbols-outlined project-icon">network_intelligence</i></span></a>               
@@ -218,14 +227,14 @@
 
 
                 <h3 class="project-title">Progress</h3>
-                <div class="progress-bar">
-                  <div class="progress-bar-fill" data-progress="90"></div>
-                  <span class="progress-bar-text" style="translate: 15px;">90%</span>
+                <div class="project-progress-bar">
+                  <div class="project-progress-bar-fill" data-progress="90"></div>
+                  <span class="project-progress-bar-text" style="translate: 15px;">90%</span>
                 </div>
               <ul class="slide-container function-list-container">
                 <li class="slide-box">
                   <div class="bg-slide"></div>
-                  <div class="todo-item done">find a working regression logic</div>
+                  <div class="todo-item done">find a suitable regression logic</div>
                 </li>
                 <li class="slide-box">
                   <div class="bg-slide"></div>
@@ -264,30 +273,30 @@
                     <div class="bg-slide"></div>
                     <div class="todo-item">
                       <span style="font-family: 'Material Symbols Outlined'; font-size: 1.2rem; margin-right: 0.5rem;">calculate</span>
-                      Dynamic result-driven computations
+                      dynamic result-driven computations
                     </div>
                   </li>
                   <li class="slide-box">
                     <div class="bg-slide"></div>
                     <div class="todo-item">
                       <span style="font-family: 'Material Symbols Outlined'; font-size: 1.2rem; margin-right: 0.5rem;">insights</span>
-                      Insights from multiple studies
+                      insights from multiple studies
                     </div>
                   </li>
                   <li class="slide-box">
                     <div class="bg-slide"></div>
                     <div class="todo-item">
                       <span style="font-family: 'Material Symbols Outlined'; font-size: 1.2rem; margin-right: 0.5rem;">output_circle</span>
-                      Output of accurate nutrition values
+                      output of accurate nutrition values
                     </div>
                   </li>
                 </ul>
 
 
                 <h3 class="project-title">Progress</h3>
-                <div class="progress-bar">
-                  <div class="progress-bar-fill" data-progress="65"></div>
-                  <span class="progress-bar-text" style="translate: 40px;">65%</span>
+                <div class="project-progress-bar">
+                  <div class="project-progress-bar-fill" data-progress="65"></div>
+                  <span class="project-progress-bar-text" style="translate: 40px;">65%</span>
                 </div>
 
                 <ul class="slide-container function-list-container">
@@ -309,7 +318,7 @@
                   </li>
                   <li class="slide-box">
                     <div class="bg-slide"></div>
-                    <div class="todo-item pending">repeat former steps</div>
+                    <div class="todo-item pending">repeat previous steps</div>
                   </li>
                   <li class="slide-box">
                     <div class="bg-slide"></div>
@@ -333,8 +342,9 @@
 
        
         
-        <section id="prediction-tool" class="section dark prediction">
+        <section id="prediction-tool" class="section dark prediction toc_section">
           <div class="container">
+            <h1 class="section-title">Nutrideep - A Nutrient Prediction Tool</h1>
             <h2>Predict Missing Nutrients</h2>
             <p>
               By leveraging deep learning techniques, I have developed a tool that predicts missing nutrients from a given set of known nutrients. For example, if you know the energy, protein, fat, and sugar content of a food item, the model can predict the levels of missing nutrients such as vitamins, minerals, and amino acids with remarkable accuracy.
@@ -342,7 +352,7 @@
             <p>
               The predictive model analyzes known data to fill in the gaps in nutritional information, providing a much more comprehensive profile of a food item. This helps users understand not just what they eat, but how it contributes to their overall nutritional needs.
             </p>
-            <h3>How it works:</h3>
+            <h2>How it works</h2>
             <ul>
               <li><strong>Input:</strong> Nutrient data (e.g., calories, protein, fat, sugar, salt) from food packaging.</li>
               <li><strong>Prediction:</strong> The machine learning model predicts missing nutrient values, such as specific vitamins or amino acids.</li>
@@ -355,7 +365,31 @@
           <div class="skewB"></div>
         </section>
         
-        <section id="use-cases" class="section bright practical">
+        <section id="predict" class="section bright prediction toc_section">
+          <div class="skewA"></div>
+        <div class="container">
+            <h2>How it performs</h2>
+            <p>
+              The following diagram shows the predicted values tested against actual values for the amino acid serine. The high accuracy of the model can be seen by the clustering of data points around the 1:1 line, indicating that the model is able to accurately predict the values of serine up to 20g per 100g of food.
+            </p>
+            <img
+            loading="lazy"
+            src="https://i.ibb.co/xh5XJTF/serine-test.png"
+            alt="Predicted values tested against actual values for serine"
+            />
+            <p>
+              The model's ability to predict values across a wide range of concentrations is important, as it means that it can be used to accurately predict the nutrient content of a wide variety of foods.
+            </p>
+            <p>
+              As with any machine learning model, there is always room for improvement. There are still some outliers that the model struggles to predict accurately. These discrepancies highlight areas for further refinement and optimization of the model. By continuously updating and validating the model with new data and refining its predictions, its performance can be enhanced, ensuring more reliable predictions across diverse datasets.
+            </p>
+            <p>
+              In addition to amino acids, the model also predicts the nutritional values of vitamins and minerals, which can be useful for food consumers and health professionals.
+            </p>
+        </div>
+        </section> 
+
+        <section id="use-cases" class="section bright practical toc_section">
           <div class="container">
             <h2>Use Cases & Applications</h2>
             <p>
@@ -368,7 +402,7 @@
                 </div>
                 <div class="application-info">
                   <h3>Consumers & Health Enthusiasts</h3>
-                  <p>Consumers can use this tool to gain a better understanding of their diet and ensure they’re meeting their nutritional needs more accurately.</p>
+                  <p>Consumers can use this tool to gain a better understanding of their diet and ensure they're meeting their nutritional needs more accurately.</p>
                 </div>
               </div>
               <div class="application reverse">
@@ -409,10 +443,10 @@
               </div>
             </div>
           </div>
-          <div class="skewA"></div>
+          <!-- <div class="skewA"></div> -->
         </section>
         
-        <section id="why" class="section why">
+        <section id="" class="section">
           <div class="skewA"></div>
 
           <div class="container">
@@ -423,29 +457,15 @@
             </div>
             <div style="height: 16em"></div>
 
-            <h1>To clarify and help</h1>
+            <h2 style="text-align: center; margin-top: 2em">Delve deeper into the network of nutrient interactions</h2>
             <p>
-              The first reason is perhaps obvious: Many people suffer from
-              conditions such as chronic heart disease and type 2 diabetes,
-              which can be prevented, controlled or even reversed by changes in
-              diet. It is a great misfortune that many people are not properly
-              <b>informed</b> because dietary recommendations often do not
-              correspond to the available research results.<br />
-              But despite the uncertainty and conflicting data, there is a
-              significant body of <b>peer-reviewed consensus</b> that we can
-              rely on and build upon. My aim is to dig my roots into the
-              existing literature in order to contribute to nutrition education
-              as a small tree in a growing forest.
+              The predictive model is just a starting point. Understanding the relationships between nutrients may contribute to improvements in food development, health, and sustainability.
             </p>
+            <p>
+              Exploring nutrient interactions could help us realize the potential of nutrient prediction, possibly aiding advancements in these areas.
+            </p>
+            
 
-            <h1>To see the big picture</h1>
-            <p>
-              Just as a tree is much more than its roots, branches and leaves,
-              the nutrients you digest are not just the sum of what you eat.
-              Dietary fiber, proteins, carbohydrates, fats and various
-              micronutrients <b>interact</b> with each other and
-              <b>impact absorption</b> to a varying degree.
-            </p>
             <div class="nav-wrapper">
               <nav>
                 <a href="#nutrientInteractions" class="link wiggle"
@@ -456,9 +476,18 @@
             <div style="height: 8em"></div>
           </div>
         </section>
-        <section id="nutrientInteractions" class="section bright nutrientInteractions">
+
+
+        <section id="nutrientInteractions" class="section bright nutrientInteractions toc_section">
           <div class="container">
             <h2>Focus on dynamic interactions</h2>
+            <p>
+              Just as a tree is much more than its roots, branches and leaves,
+              the nutrients you digest are not just the sum of what you eat.
+              Dietary fiber, proteins, carbohydrates, fats and various
+              micronutrients <b>interact</b> with each other and
+              <b>impact absorption</b> to a varying degree.
+            </p>
             <p>
               Traditional approaches simply add together the ingredients of the
               food consumed. In terms of calories, that would mean 575 Kcal in a
@@ -660,8 +689,9 @@
           </div>
         </section>
 
-        <section id="" class="section">
-          <div class="skewA"></div>
+        <section id="contact" class="section contact toc_section">
+            
+            <div class="skewA"></div>
 
           <div class="container">
             <div class="blob-cont" style="mix-blend-mode: difference">
@@ -669,27 +699,45 @@
               <div class="red blob"></div>
               <div style="border-radius: 500px" class="black blob"></div>
             </div>
-            <h2>Future outlook</h2>
+            <h1>
+              Contact
+            </h1>
             <p>
               <p>
                 If you're interested in collaborating, contributing to the project, or simply learning more, feel free to get in touch! Let's make nutrition science more accessible and impactful together.
               </p>
+
+            <div class="contact-info">
+                <div class="contact-item">
+                    <a class ="wiggle" style="text-shadow: none; color: inherit; text-decoration: none; display: flex; align-items: center;" href="mailto:cedarnexus@gmail.com"><span class="material-icons" style="margin-right: .5em;">email</span>cedarnexus@gmail.com</a>
+                </div>
+
+                <style>
+                    .contact-item {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 1em;
+                    }
+
+                    .contact-item svg {
+                        margin-right: 0.5em;
+                    }
+                </style>
+
+            </div>
+
             </p>
 
             <div class="nav-wrapper">
               <nav>
-                <a href="#contact" class="link wiggle"
+                <a href="#contact-form" class="link wiggle"
                   ><span style="text-transform: inherit">Let's grow.</span></a
                 >
               </nav>
             </div>
           </div>
-        </section>
 
-        <section id="contact" class="section contact">
-          <!--<section id="contact" class="section contact skewedA">-->
-
-          <div class="contact-form-container">
+          <section id ="contact-form" class="contact-form-container">
             <div id="contact-wrapper">
               <h2>Get in touch</h2>
               <p>Write me a message:</p>
@@ -722,16 +770,16 @@
                 <button type="submit" class="btn">Send</button>
               </form>
             </div>
-          </div>
+          </section>
           <div style="height: 12em"></div>
         </section>
 
 
         <!--        Sources       -->
-        <section class="section bright sources">
+        <section class="section bright sources toc_section">
           <div class="skewB"></div>
           <div class="container">
-            <h2>Sources</h2>
+            <h1>Cited Sources</h1>
             <div
               id="Christensen2009"
               class="csl-bib-body"
