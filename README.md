@@ -24,7 +24,11 @@ Cedar Nexus seeks to map and optimize the interactions between nutrients through
 
 ### Performance
 
-The models have been shown to have a surprisingly high accuracy, with **R² values** of around **0.97** for predicting amino acid content. While there is still room for improvement, the models can predict nutrient values for a wide variety of foods, making it a valuable tool for both food consumers and health professionals.
+The models have been shown to have a surprisingly high accuracy, with **R² values** of up to **0.99** for predicting the content of certain amino acids. While there is still room for improvement, the models can predict nutrient values for a wide variety of foods, making it a valuable tool for both food consumers and health professionals.
+
+### Caveats
+
+For nutrients that have a diffuse statistical relationship to the specified nutrients, the prediction is less accurate. In the case of amino acids, for example, glycine (R² of 0.88) and cysteine (R² of 0.77) are problematic, although all others have an R² value of at least 97.
 
 
 ## Nutrimerge: Understanding Dynamic Nutrient Interactions
